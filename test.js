@@ -33,16 +33,20 @@ class Api
 	get_api_path(object, template)
 	{
 		
-		if (typeof template !== 'string') {
+		if (typeof template !== 'string')
+		{
       throw new TypeError('шаблон должен быть строкой');
     }
 
 		let apiArr = template.split('/');
-		for (let item of apiArr) {
-			if (item.startsWith('%') && item.endsWith('%')) {
+		for (let item of apiArr)
+		{
+			if (item.startsWith('%') && item.endsWith('%'))
+			{
 				const tempName = item.substring(1, item.length - 1);
 				
-				if (tempName.length && object.hasOwnProperty(tempName)) {
+				if (tempName.length && object.hasOwnProperty(tempName))
+				{
 					const index = apiArr.indexOf(item);
 					apiArr.splice(index, 1, object[tempName])
 				}
