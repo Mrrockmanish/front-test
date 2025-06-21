@@ -39,7 +39,7 @@ class Api
     }
 
 		let apiArr = template.split('/');
-		for (let item of apiArr)
+		for (let [index, item] of apiArr.entries())
 		{
 			if (item.startsWith('%') && item.endsWith('%'))
 			{
@@ -47,7 +47,6 @@ class Api
 				
 				if (tempName.length && object.hasOwnProperty(tempName))
 				{
-					const index = apiArr.indexOf(item);
 					apiArr.splice(index, 1, object[tempName])
 				}
 			}
